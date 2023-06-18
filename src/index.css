@@ -1,0 +1,31 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+
+ 
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.fieldset{
+  background-image:url(http://www.blueletter.in/wp-content/uploads/2014/03/full01.jpg);
+}
+
+.input_value{
+  margin: 2%;
+  padding: 1%;
+  width: 500px;
+}
+
+/* .videode {
+  background: url("https://player.vimeo.com/external/334344435.sd.mp4?s=d367341a941ffa97781ade70e4f4a28f4a1a5fc8&profile_id=164&oauth2_token_id=57447761") no-repeat center center fixed;
+  background-size: cover;
+} */
