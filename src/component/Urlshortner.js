@@ -1,23 +1,29 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import  "../index.css"
+import {serverUri} from './Config';
+
+
 const Urlshortner = () => {
-  const [url, setUrl] = useState({url:""})
+
+  const [mainUrl, setMainUrl] = useState("");
 
 
-  const handleInput = (e) => {
-    let {name, value}= e.target;
-    setUrl({...url, [name]: value});
-    //console.log(value)
-  }
+  // const handleInput = (e) => {
+  //   let {name, value}= e.target;
+  //   setUrl({...url, [name]: value});
+  //   //console.log(value)
+  // }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    let result = { URL:url.url }
-    let response = await axios.post("http://localhost:4000/url", result)
-    console.log(response)
+    let data = { mainUrl: mainUrl };
+    let res = await axios.post(serverUri + "/sort-the-url", data);
 
-  }
+    // const parsedData = await res.json();
+    console.log(res.status);
+
+  };
 
 
   return (
@@ -29,10 +35,10 @@ const Urlshortner = () => {
       <h4 style={{fontFamily:"cursive"}}>LinkSail: Navigate the web with speed, simplicity, and style.</h4>
       </fieldset>
  
-      <form onSubmit={handleSubmit}> 
-          <h1 style={{fontFamily:"serif"}}>Urlshortner</h1>
-          <input className='input_value' type="text" name="url" placeholder="Enter your URL" onChange={handleInput} />
-          <button type='submit' className="button" onSubmit={handleSubmit} >submit</button>
+      <form > 
+          {/* <h1 style={{fontFamily:"serif"}}>Urlshortner</h1> */}
+          <input className='input_value' type="text" name="url" placeholder="Enter your URL" onChange={(e) => setMainUrl(e.target.value)} />
+          <button className="button" onClick={handleSubmit} >submit</button>
       </form>
     </div>
   )
