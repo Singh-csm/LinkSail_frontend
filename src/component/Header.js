@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 const Header = () => {
   return (
@@ -8,7 +8,7 @@ const Header = () => {
         <h4 style={{ fontFamily: "cursive" }}>LinkSail: Navigate the web with speed, simplicity, and style.</h4>
       </fieldset>
     </div>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

@@ -8,13 +8,7 @@ import Urlshortner from './component/Urlshortner';
 
 function App() {
   return (
-    <div className="App" style={{
-      backgroundImage: `url(${bgImgUri})`,
-      backgroundSize: 'cover',
-      height: "1200px",
-      backgroundRepeat: 'no-repeat',
-      backgroundPosition: 'center'
-    }}>
+    <div className="App" >
       <Header />
       <Urlshortner />
 <Footer/>
