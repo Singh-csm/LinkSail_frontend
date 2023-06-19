@@ -2,12 +2,14 @@ import React, { useState, useRef } from 'react';
 import axios from 'axios';
 import "../index.css"
 import { serverUri, bgImgUri } from './Config';
+import copy from '../assets/img/copy.png';
+import copied from '../assets/img/copied.png';
 
 
 const Urlshortner = () => {
 
   const [mainUrl, setMainUrl] = useState("");
-
+  const [copyIcon, setCopyIcon] = useState(copy);
   const [output, setOutput] = useState(null);
   const [text, setText] = useState("Text to be copied");
 
@@ -20,6 +22,10 @@ const Urlshortner = () => {
     setOutput(res.data.data);
     console.log(res.data.data);
     setText(res.data.data.shortUrl);
+
+    setTimeout(() => {
+      setMainUrl('');
+    }, 1000);
   };
 
   const copyButton = document.getElementById('copyButton');
@@ -28,12 +34,7 @@ const Urlshortner = () => {
   copyButton?.addEventListener('click', () => {
     textToCopy.select(); // Select the text inside the input element
     document.execCommand('copy'); // Copy the selected text to the clipboard
-
-    // Optionally, you can provide visual feedback to the user
-    copyButton.innerText = 'Copied!';
-    setTimeout(() => {
-      copyButton.innerText = 'Copy Text';
-    }, 2000);
+    setCopyIcon(copied);;
   });
 
 
@@ -41,7 +42,7 @@ const Urlshortner = () => {
     <div className='urlshortner' style={{
       backgroundImage: `url(${bgImgUri})`,
       backgroundSize: 'cover',
-      height: "700px",
+      height: "400px",
       backgroundRepeat: 'no-repeat',
       backgroundPosition: 'center',
       display: "flex",
@@ -64,11 +65,11 @@ const Urlshortner = () => {
         {
           <>
             {
-              output ? <h3 className='output'>
+              output ? <div style={{height: "30px", margin: "20px", display: "flex", flexDirection: "row", margin: "auto9"}} >
       
-            <button id="copyButton">Copy Text</button>
-            <input type="text" id="textToCopy" value={text} readonly />
-              </h3> 
+            <input type="text" id="textToCopy" value={text} readOnly style={{padding: "10px"}}/>
+            <button id="copyButton"> <img src={copyIcon} alt="Copy" style={{height: "30px"}} /> </button>
+              </div> 
             : null
             }
 
