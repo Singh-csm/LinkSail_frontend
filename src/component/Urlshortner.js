@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import "../index.css"
 import { serverUri, bgImgUri } from './Config';
@@ -63,22 +63,24 @@ const Urlshortner = () => {
         </form>
 
         {
-          <>
+          <div style={{marginTop:"30px"}}>
             {
-              output ? <div style={{height: "30px", margin: "20px", display: "flex", flexDirection: "row", margin: "auto9"}} >
+              output ? <div style={{height: "50px",gap:"5px", display: "flex", flexDirection: "row", alignItems:"center", justifyContent:"center"}} >
       
-            <input type="text" id="textToCopy" value={text} readOnly style={{padding: "10px"}}/>
-            <button id="copyButton"> <img src={copyIcon} alt="Copy" style={{height: "30px"}} /> </button>
+            <input type="text"  id="textToCopy" value={text} readOnly style={{padding: "10px", border:"0px transparent", borderRadius:"13px",
+             boxShadow: "rgba(0, 0, 0, 0.56) 0px 22px 70px 4px"
+            }}/>
+            <button id="copyButton" style={{ borderRadius:"13px", display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"center"}}> <img  src={copyIcon} alt="Copy" style={{height: "30px"}} /> </button>
               </div> 
             : null
             }
 
-          </>
+          </div>
         }
       </div>
 
       <div>
-        <iframe src="https://www.youtube.com/embed/yYWlZz-jW9Q?autoplay=1" allow='autoplay' frameBorder="10px0" height="300px" width="500px" title="1" ></iframe>
+        <iframe style={{borderRadius:"15px",border:"7px green solid",  borderBottomWidth:"32px"}} src="https://www.youtube.com/embed/FawKFcFk5N8?autoplay=1" allow='autoplay'  height="300px" width="500px" title="1" ></iframe>
       </div>
 
     </div>

@@ -1,6 +1,5 @@
-
-import './App.css';
-import { bgImgUri } from './component/Config';
+import React from 'react';
+import './App.css'; 
 import Footer from './component/Footer';
 import Header from './component/Header';
 
